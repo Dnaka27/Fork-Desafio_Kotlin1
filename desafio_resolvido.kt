@@ -24,9 +24,20 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) 
         println("--- Usuario inscrito com sucesso ---")
         println("Usuario: ${usuario.nome}")
     }
+
+    fun descricao(){
+        println("-------- Descricão de curso --------")
+        println("Nome: $nome")
+        println("Carga horaria: $total_duracao horas")
+        println("Nivel: $nivel")
+        println("Alunos inscritos: ${inscritos.size}")
+        for (aluno in inscritos) {
+            println("- ${aluno.id}: ${aluno.nome}")
+        }
+    }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     var user1 = Usuario(1, "Elidiana", "elidianaexemplo@gmail.com")
     var user2 = Usuario(2, "Falvo", "falvoexemplo@gmail.com")
 
@@ -39,4 +50,7 @@ fun main(args: Array<String>) {
 	
 	python.matricular(user1)
     kotlin.matricular(user2)
+
+    python.descricao()
+    kotlin.descricao()
 }
